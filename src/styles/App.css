@@ -1,1 +1,10 @@
+.main-container {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
 
+nav a {
+  margin-right: 10px;
+  text-decoration: none;
+  color: blue;
+}
