@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Routes, Route, Link, Navigate } from 'react-router-dom';
-import LoginPage from "../src/Pages/LoginPage.js";
-import Playground from './Pages/PlayGround.js';
+import { Routes, Route, Link } from 'react-router-dom';
+import Playground from './pages/Playground';
+import LoginPage from './Pages/LoginPage';
 import PrivateRoute from './components/PrivateRoute';
 
 function App() {
@@ -9,12 +9,18 @@ function App() {
 
   return (
     <div className="main-container">
-      <nav>
-        <Link to="/login">Login</Link> |{' '}
-        <Link to="/playground">Code Playground</Link>
-      </nav>
+      <div>
+        {isAuthenticated ? (
+          <p>Logged in, Now you can enter Playground</p>
+        ) : (
+          <p>You are not authenticated, Please login first</p>
+        )}
 
-      <p>Status: {isAuthenticated ? 'Authenticated ✅' : 'Unauthenticated ❌'}</p>
+        <ul>
+          <li><Link to="/playground">PlayGround</Link></li>
+          <li><Link to="/login">Login</Link></li>
+        </ul>
+      </div>
 
       <Routes>
         <Route
@@ -27,9 +33,13 @@ function App() {
         />
         <Route
           path="/login"
-          element={<LoginPage setIsAuthenticated={setIsAuthenticated} />}
+          element={
+            <LoginPage
+              isAuthenticated={isAuthenticated}
+              setIsAuthenticated={setIsAuthenticated}
+            />
+          }
         />
-        <Route path="*" element={<Navigate to="/playground" />} />
       </Routes>
     </div>
   );

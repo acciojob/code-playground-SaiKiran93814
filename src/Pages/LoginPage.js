@@ -1,18 +1,22 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
 
-function LoginPage({ setIsAuthenticated }) {
-  const navigate = useNavigate();
-
+function LoginPage({ isAuthenticated, setIsAuthenticated }) {
   const handleLogin = () => {
     setIsAuthenticated(true);
-    navigate('/playground');
+  };
+
+  const handleLogout = () => {
+    setIsAuthenticated(false);
   };
 
   return (
     <div>
-      <h2>Login Page</h2>
-      <button onClick={handleLogin}>Log In</button>
+      <h3>Login</h3>
+      {isAuthenticated ? (
+        <button onClick={handleLogout}>Log Out</button>
+      ) : (
+        <button onClick={handleLogin}>Log In</button>
+      )}
     </div>
   );
 }
