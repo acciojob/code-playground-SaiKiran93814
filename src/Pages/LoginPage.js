@@ -7,12 +7,10 @@ function LoginPage({ isAuthenticated, setIsAuthenticated }) {
   return (
     <div>
       <h3>Login</h3>
-
-      {/* ✅ Cypress can now target these buttons */}
       {isAuthenticated ? (
         <button data-testid="logout-btn" onClick={handleLogout}>Log Out</button>
       ) : (
-        <button data-testid="login-btn" onClick={handleLogin}>Log In</button>
+        <button data-testid="login-btn" onClick={handleLogin}>Log In</button> // ✅ This button should be here
       )}
     </div>
   );
