@@ -34,14 +34,14 @@ function App() {
           }
         />
         <Route
-          path="/login"
-          element={
-            <LoginPage
-              isAuthenticated={isAuthenticated}
-              setIsAuthenticated={setIsAuthenticated}
-            />
-          }
-        />
+  path="/login"
+  element={
+    <LoginPage
+      isAuthenticated={isAuthenticated}
+      setIsAuthenticated={setIsAuthenticated}
+    />
+  }
+/>
         <Route path="*" element={<Navigate to="/login" />} />
       </Routes>
     </div>
