@@ -11,10 +11,11 @@ function App() {
     <div className="main-container">
       <div>
         {isAuthenticated ? (
-          <p>Logged in, Now you can enter Playground</p>
-        ) : (
-          <p>You are not authenticated, Please login first</p>
-        )}
+  <p data-testid="status-msg">Logged in</p>
+) : (
+  <p data-testid="status-msg">You are not authenticated</p>
+)}
+
 
         <ul>
           <li><Link to="/playground">PlayGround</Link></li>
