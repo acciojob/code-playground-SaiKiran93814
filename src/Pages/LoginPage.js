@@ -1,21 +1,18 @@
 import React from 'react';
 
 function LoginPage({ isAuthenticated, setIsAuthenticated }) {
-  const handleLogin = () => {
-    setIsAuthenticated(true);
-  };
-
-  const handleLogout = () => {
-    setIsAuthenticated(false);
-  };
+  const handleLogin = () => setIsAuthenticated(true);
+  const handleLogout = () => setIsAuthenticated(false);
 
   return (
     <div>
       <h3>Login</h3>
+
+      {/* ✅ Cypress can now target these buttons */}
       {isAuthenticated ? (
-        <button onClick={handleLogout}>Log Out</button>
+        <button data-testid="logout-btn" onClick={handleLogout}>Log Out</button>
       ) : (
-        <button onClick={handleLogin}>Log In</button>
+        <button data-testid="login-btn" onClick={handleLogin}>Log In</button>
       )}
     </div>
   );

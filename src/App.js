@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Routes, Route, Link } from 'react-router-dom';
-import Playground from "../src/Pages/Playground.js";
+import { Routes, Route, Link, Navigate } from 'react-router-dom';
 import LoginPage from './Pages/LoginPage.js';
+import Playground from "../src/Pages/Playground.js";
 import PrivateRoute from './components/PrivateRoute';
 
 function App() {
@@ -9,19 +9,19 @@ function App() {
 
   return (
     <div className="main-container">
-      <div>
-        {isAuthenticated ? (
-  <p data-testid="status-msg">Logged in</p>
-) : (
-  <p data-testid="status-msg">You are not authenticated</p>
-)}
-
-
+      <nav>
         <ul>
-          <li><Link to="/playground">PlayGround</Link></li>
           <li><Link to="/login">Login</Link></li>
+          <li><Link to="/playground">Code Playground</Link></li>
         </ul>
-      </div>
+      </nav>
+
+      {/* ✅ Added for Cypress to detect auth status */}
+      <p data-testid="status-msg">
+        {isAuthenticated
+          ? 'Logged in, Now you can enter Playground'
+          : 'You are not authenticated, Please login first'}
+      </p>
 
       <Routes>
         <Route
@@ -41,6 +41,7 @@ function App() {
             />
           }
         />
+        <Route path="*" element={<Navigate to="/login" />} />
       </Routes>
     </div>
   );
