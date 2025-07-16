@@ -11,9 +11,10 @@ function App() {
     <div className="main-container">
       <nav>
         <ul>
-          <li><Link to="/login">Login</Link></li>
-          <li><Link to="/playground">Code Playground</Link></li>
-        </ul>
+  <li><Link to="/login">Login</Link></li>
+  <li><Link to="/playground">PlayGround</Link></li> {/* ✅ match capitalization */}
+</ul>
+
       </nav>
 
       {/* ✅ Added for Cypress to detect auth status */}
