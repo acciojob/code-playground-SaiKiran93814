@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
-import Playground from './pages/Playground';
-import LoginPage from './Pages/LoginPage';
+import Playground from "../src/Pages/Playground.js";
+import LoginPage from './Pages/LoginPage.js';
 import PrivateRoute from './components/PrivateRoute';
 
 function App() {
