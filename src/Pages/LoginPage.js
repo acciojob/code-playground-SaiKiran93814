@@ -8,20 +8,15 @@ function LoginPage({ isAuthenticated, setIsAuthenticated }) {
     <div data-testid="login-page">
       <h3>Login</h3>
 
-      {/* ✅ Always render BOTH buttons, disable one based on auth */}
-      <button 
-        onClick={handleLogin} 
-        disabled={isAuthenticated}
-      >
-        Log In
-      </button>
-
-      <button 
-        onClick={handleLogout} 
-        disabled={!isAuthenticated}
-      >
-        Log Out
-      </button>
+      {isAuthenticated ? (
+        <button data-testid="logout-btn" onClick={handleLogout}>
+          Log Out
+        </button>
+      ) : (
+        <button data-testid="login-btn" onClick={handleLogin}>
+          Log In
+        </button>
+      )}
     </div>
   );
 }
