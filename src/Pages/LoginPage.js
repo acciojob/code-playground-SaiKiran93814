@@ -8,9 +8,9 @@ function LoginPage({ isAuthenticated, setIsAuthenticated }) {
     <div data-testid="login-page">
       <h3>Login</h3>
       {isAuthenticated ? (
-        <button data-testid="logout-btn" onClick={handleLogout}>Log Out</button>
+        <button onClick={handleLogout}>Log Out</button>  // ✅ Plain button for Cypress
       ) : (
-        <button data-testid="login-btn" onClick={handleLogin}>Log In</button>
+        <button onClick={handleLogin}>Log In</button>     // ✅ Plain button for Cypress
       )}
     </div>
   );
