@@ -7,11 +7,21 @@ function LoginPage({ isAuthenticated, setIsAuthenticated }) {
   return (
     <div data-testid="login-page">
       <h3>Login</h3>
-      {isAuthenticated ? (
-        <button onClick={handleLogout}>Log Out</button>  // ✅ Plain button for Cypress
-      ) : (
-        <button onClick={handleLogin}>Log In</button>     // ✅ Plain button for Cypress
-      )}
+
+      {/* ✅ Always render BOTH buttons, disable one based on auth */}
+      <button 
+        onClick={handleLogin} 
+        disabled={isAuthenticated}
+      >
+        Log In
+      </button>
+
+      <button 
+        onClick={handleLogout} 
+        disabled={!isAuthenticated}
+      >
+        Log Out
+      </button>
     </div>
   );
 }
