@@ -7,15 +7,10 @@ function LoginPage({ isAuthenticated, setIsAuthenticated }) {
   return (
     <div data-testid="login-page">
       <h3>Login</h3>
-
       {isAuthenticated ? (
-        <button data-testid="logout-btn" onClick={handleLogout}>
-          Log Out
-        </button>
+        <button data-testid="logout-btn" onClick={handleLogout}>Log Out</button>
       ) : (
-        <button data-testid="login-btn" onClick={handleLogin}>
-          Log In
-        </button>
+        <button data-testid="login-btn" onClick={handleLogin}>Log In</button>
       )}
     </div>
   );

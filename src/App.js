@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Routes, Route, Link, Navigate } from 'react-router-dom';
 import LoginPage from './Pages/LoginPage.js';
-import Playground from "../src/Pages/Playground.js";
-import PrivateRoute from './components/PrivateRoute'; // Make sure this is the fixed version below
+import Playground from './Pages/Playground.js';
+import PrivateRoute from './components/PrivateRoute';
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -16,7 +16,6 @@ function App() {
         </ul>
       </nav>
 
-      {/* Status for Cypress test */}
       <p data-testid="status-msg">
         {isAuthenticated
           ? 'Logged in, Now you can enter Playground'
